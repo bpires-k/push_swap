@@ -13,6 +13,13 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+typedef struct ds_list
+{
+	int				value;
+	int				index;
+	struct ds_list	*next;
+	struct ds_list	*previous;
+}
 int compute_disorder(int *a);
 
 #endif
