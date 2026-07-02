@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/02 17:47:36 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 22:57:20 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 22:57:21 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include "libft/libft.h"
-
-typedef struct ds_node
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	int				value;
-	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
-	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	size_t	i;
+	size_t	dstlen;
 
-int		compute_disorder(int *a);
-
-#endif
+	i = 0;
+	dstlen = ft_strlen(dst);
+	if (dstlen >= n || n == 0)
+		return (n + ft_strlen(src));
+	while (src[i] != '\0' && (i + dstlen + 1) < n)
+	{
+		dst[dstlen + i] = src[i];
+		i++;
+	}
+	dst[dstlen + i] = '\0';
+	return (ft_strlen(src) + dstlen);
+}

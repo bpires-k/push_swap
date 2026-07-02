@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/02 17:47:36 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 22:58:39 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 22:58:40 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include "libft/libft.h"
-
-typedef struct ds_node
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int				value;
-	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
-	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	size_t	i;
 
-int		compute_disorder(int *a);
-
-#endif
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0' ) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/02 17:47:36 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 22:53:32 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 22:53:34 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include "libft/libft.h"
-
-typedef struct ds_node
+t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
 {
-	int				value;
-	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
-	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	t_list	*new_lst;
+	t_list	*new_node;
 
-int		compute_disorder(int *a);
-
-#endif
+	if (!lst || !f || !del)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
+	{
+		new_node = ft_lstnew(f(lst -> content));
+		if (!new_node)
+			return (ft_lstclear(&new_lst, del), NULL);
+		ft_lstadd_back(&new_lst, new_node);
+		lst = lst -> next;
+	}
+	return (new_lst);
+}

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/02 17:47:36 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 17:32:05 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 17:32:08 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include "libft/libft.h"
-
-typedef struct ds_node
+void	ft_bzero(void *str, size_t n)
 {
-	int				value;
-	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
-	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	size_t			i;
+	unsigned char	*p;
 
-int		compute_disorder(int *a);
-
-#endif
+	i = 0;
+	p = (unsigned char *)str;
+	while (i < n)
+	{
+		p[i] = 0;
+		i++;
+	}
+}

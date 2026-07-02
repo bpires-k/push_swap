@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/02 17:47:36 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 17:18:45 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 17:18:49 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include "libft/libft.h"
-
-typedef struct ds_node
+int	ft_atoi(const char *nptr)
 {
-	int				value;
-	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
-	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	int	i;
+	int	r;
+	int	signal;
 
-int		compute_disorder(int *a);
-
-#endif
+	i = 0;
+	r = 0;
+	signal = 1;
+	while ((nptr[i] != '\0' && nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			signal *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		r = r * 10 + nptr[i] - '0';
+		i++;
+	}
+	return (r * signal);
+}

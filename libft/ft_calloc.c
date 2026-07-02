@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/02 17:47:36 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 17:32:20 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 17:32:21 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include "libft/libft.h"
-
-typedef struct ds_node
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int				value;
-	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
-	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	void	*p;
+	size_t	t_size;
 
-int		compute_disorder(int *a);
-
-#endif
+	if (nmemb != 0 && size > (SIZE_MAX / nmemb))
+		return (0);
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	t_size = nmemb * size;
+	p = malloc(t_size);
+	if (!p)
+		return (0);
+	ft_bzero(p, t_size);
+	return (p);
+}
