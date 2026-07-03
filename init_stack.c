@@ -100,17 +100,17 @@ static int	error_duplicate(t_list **a, int n)
 	}
 }*/
 
-void	init_stack_a(t_list **a, char **argv)
+void	init_stack_a(char **list)
 {
 	long	n;
 	int		i;
 	
 	i = 0;
-	while (argv[i])
+	while (list[i])
 	{
-		if (error_syntax(argv[i]))
+		if (error_syntax(list[i]))
 			ft_lstclear(a, free);
-		n = ft_atol(argv[i]);
+		n = ft_atol(list[i]);
 		if (n < INT_MIN || n > INT_MAX)
 			ft_lstclear(a, free);
 		if(error_duplicate(a, (int)n))

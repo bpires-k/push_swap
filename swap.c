@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 19:17:57 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/03 18:34:50 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/07/03 16:40:41 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/07/03 18:35:37 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	swap_a(t_list **a)
 {
-	char	**list;
+	t_list temp;
 
-	if (argc < 2)
-		return (0);
-	else if (argc == 2)
-		list = ft_split(argv[1]);
-	else
-		list = argv[1:];
-	init_stack_a(list)
+	if (!a)
+		return;
+	temp = *a;
+	*a = (*a)->next;
+	(*a)-> next = temp;
+	return;
 }
