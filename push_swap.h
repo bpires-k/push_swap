@@ -6,7 +6,7 @@
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/03 18:38:31 by bpires-k         ###   ########.fr       */
+/*   Updated: 2026/07/03 21:14:53 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ typedef struct ds_node
 
 int		compute_disorder(int *a);
 void	init_stack_a(char **list);
-t_list	**rotate_a(t_list **a);
-t_list	**rotate_b(t_list **b);
-t_list	**rotate_r(t_list **a, t_list **b);
+void	rotate_a(t_list **a);
+void	rotate_b(t_list **b);
+void	rotate_r(t_list **a, t_list **b);
 void	push_a(t_list **b);
 void	push_b(t_list **a);
 void	swap_a(t_list **a);
-void	swap_b(t_list **b)
+void	swap_b(t_list **b);
 void	swap_s(t_list **a, t_list **b);
+void	reverse_rotate_a(t_list **a);
+void	reverse_rotate_a(t_list **b);
+void	reverse_rotate_r(t_list **a, t_list **b);
 
 #endif
