@@ -22,5 +22,5 @@ int	main(int argc, char **argv)
 		list = ft_split(argv[1]);
 	else
 		list = argv[1:];
-	init_stack_a(list)
+	init_stack_a(list);
 }

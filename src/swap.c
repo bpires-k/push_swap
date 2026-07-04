@@ -23,3 +23,30 @@ void	swap_a(t_list **a)
 	(*a)-> next = temp;
 	return;
 }
+
+void	swap_b(t_list **b)
+{
+	t_list temp;
+
+	if (!b)
+		return;
+	temp = *b;
+	*b = (*b)->next;
+	(*b)-> next = temp;
+	return;
+}
+
+void	swap_s(t_list **a, t_list **b)
+{
+	t_list temp;
+
+	if (!a || !b)
+		return;
+	temp = *a;
+	*a = (*a)->next;
+	(*a)-> next = temp;
+	temp = *b;
+	*b = (*b)->next;
+	(*b)-> next = temp;
+	return;
+}

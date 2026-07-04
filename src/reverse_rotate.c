@@ -32,7 +32,12 @@ void	reverse_rotate_b(t_list **b)
 
 void	reverse_rotate_r(t_list **a, t_list **b)
 {
-	reverse_rotate_a(a);
-	reverse_rotate_b(b);
+	if (!a || !b)
+		return;
+	ft_lstadd_back(a, (*a));
+	ft_lstdelone((*a), free);
+	ft_lstadd_back(b, (*b));
+	ft_lstdelone((*b), free);
+	return;
 }
 
