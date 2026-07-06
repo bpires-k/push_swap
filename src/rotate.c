@@ -18,6 +18,7 @@ void	rotate_a(t_list **a)
 		return;
 	ft_lstadd_front(a, ft_lstlast(*a));
 	ft_lstdelone(ft_lstlast(*a), free);
+	write(1, "ra", 2);
 	return;
 }
 
@@ -27,6 +28,7 @@ void	rotate_b(t_list **b)
 		return;
 	ft_lstadd_front(b, ft_lstlast(*b));
 	ft_lstdelone(ft_lstlast(*b), free);
+	write(1, "rb", 2);
 	return;
 }
 
@@ -36,5 +38,6 @@ void	rotate_r(t_list **a, t_list **b)
 		return;
 	rotate_a(a);
 	rotate_b(b);
+	write(1, "rr", 2);
 	return;
 }

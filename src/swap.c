@@ -21,6 +21,7 @@ void	swap_a(t_list **a)
 	temp = *a;
 	*a = (*a)->next;
 	(*a)-> next = temp;
+	write(1, "sa", 2);
 	return;
 }
 
@@ -33,6 +34,7 @@ void	swap_b(t_list **b)
 	temp = *b;
 	*b = (*b)->next;
 	(*b)-> next = temp;
+	write(1, "sb", 2);
 	return;
 }
 
@@ -48,5 +50,6 @@ void	swap_s(t_list **a, t_list **b)
 	temp = *b;
 	*b = (*b)->next;
 	(*b)-> next = temp;
+	write(1, "ss", 2);
 	return;
 }

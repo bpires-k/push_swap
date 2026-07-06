@@ -18,9 +18,14 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	else if (argc == 2)
-		list = ft_split(argv[1]);
+	if (compute_disorder(a) == 0)
+		return (0);
 	else
-		list = argv[1:];
-	init_stack_a(list);
+	{
+		if (argc == 2)
+			list = ft_split(argv[1]);
+		else
+			list = argv[1:];
+		init_stack_a(list);
+	}
 }

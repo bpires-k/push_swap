@@ -12,8 +12,8 @@
 
 #include "push_swap.h"
 
-float	compute_disorder(int *a, int size)
-{ 
+float	compute_disorder(t_list **a)
+{
 	int	mistakes;
 	int	i;
 	int	j;
@@ -22,7 +22,7 @@ float	compute_disorder(int *a, int size)
 	mistakes = 0;
 	i = 0;
 	total_pairs = 0;
-	while (i < size - 1)
+	while (i < ft_lstsize(a) - 1)
 	{
 		j = i + 1;
 		while (j < size - 1)

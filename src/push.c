@@ -20,6 +20,7 @@ void	push_a(t_list **a, t_list **b)
 	{
 		ft_lstadd_front(a, *b);
 		ft_lstdelone(*b, free);
+		write(1, "pa", 2);
 		return;
 	}
 }
@@ -35,6 +36,7 @@ void	push_b(t_list **a, t_list **b)
 		else
 			ft_lstadd_front(b, *a);
 		ft_lstdelone(*a, free);
+		write(1, "pb", 2);
 		return;
 	}
 }

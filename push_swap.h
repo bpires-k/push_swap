@@ -26,7 +26,7 @@ typedef struct ds_node
 	struct ds_node	*previous;
 }	stack_node;
 
-int		compute_disorder(int *a);
+float	compute_disorder(t_list *a);
 void	init_stack_a(char **list);
 void	rotate_a(t_list **a);
 void	rotate_b(t_list **b);
