@@ -63,7 +63,7 @@ static int	error_syntax(char *a)
 	return (0);
 }
 
-static int	error_duplicate(t_list **a, int n)
+static int	error_duplicate(l_list **a, int n)
 {
 	while ((*a)->next)
 	{
@@ -109,13 +109,13 @@ void	init_stack_a(char **list)
 	while (list[i])
 	{
 		if (error_syntax(list[i]))
-			ft_lstclear(a, free);
+			ft_lclear(a, free);
 		n = ft_atol(list[i]);
 		if (n < INT_MIN || n > INT_MAX)
-			ft_lstclear(a, free);
+			ft_lclear(a, free);
 		if(error_duplicate(a, (int)n))
-			ft_lstclear(a, free);
-		ft_lstadd_back(a, ft_lstnew(n));
+			ft_lclear(a, free);
+		ft_ladd_back(a, ft_lstnew(n));
 		i++;
 	}
 }

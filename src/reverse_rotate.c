@@ -12,35 +12,35 @@
 
 #include "../push_swap.h"
 
-void	reverse_rotate_a(t_list **a)
+void	reverse_rotate_a(l_list **a)
 {
 	if (!a)
 		return;
-	ft_lstadd_back(a, (*a));
-	ft_lstdelone((*a), free);
-	write(1, "rra", 3);
+	ft_ladd_back(a, (*a));
+	ft_ldelone((*a), free);
+	write(1, "rra\n", 4);
 	return;
 }
 
-void	reverse_rotate_b(t_list **b)
+void	reverse_rotate_b(l_list **b)
 {
 	if (!b)
 		return;
-	ft_lstadd_back(b, (*b));
-	ft_lstdelone((*b), free);
-	write(1, "rrb", 3);
+	ft_ladd_back(b, (*b));
+	ft_ldelone((*b), free);
+	write(1, "rrb\n", 4);
 	return;
 }
 
-void	reverse_rotate_r(t_list **a, t_list **b)
+void	reverse_rotate_r(l_list **a, l_list **b)
 {
 	if (!a || !b)
 		return;
-	ft_lstadd_back(a, (*a));
-	ft_lstdelone((*a), free);
-	ft_lstadd_back(b, (*b));
-	ft_lstdelone((*b), free);
-	write(1, "rrr", 3);
+	ft_ladd_back(a, (*a));
+	ft_ldelone((*a), free);
+	ft_ladd_back(b, (*b));
+	ft_ldelone((*b), free);
+	write(1, "rrr\n", 4) ;
 	return;
 }
 

@@ -18,26 +18,33 @@
 
 typedef struct ds_node
 {
-	int				value;
+	int				content;
 	int				index;
-	int				cheapest;
-	struct ds_node	*target_node;
 	struct ds_node	*next;
-	struct ds_node	*previous;
-}	stack_node;
+	struct ds_node	*prev;
+}	l_list;
 
-float	compute_disorder(t_list *a);
+float	compute_disorder(l_list *a);
 void	init_stack_a(char **list);
-void	rotate_a(t_list **a);
-void	rotate_b(t_list **b);
-void	rotate_r(t_list **a, t_list **b);
-void	push_a(t_list **b);
-void	push_b(t_list **a);
-void	swap_a(t_list **a);
-void	swap_b(t_list **b);
-void	swap_s(t_list **a, t_list **b);
-void	reverse_rotate_a(t_list **a);
-void	reverse_rotate_a(t_list **b);
-void	reverse_rotate_r(t_list **a, t_list **b);
+void	rotate_a(l_list **a);
+void	rotate_b(l_list **b);
+void	rotate_r(l_list **a, l_list **b);
+void	push_a(l_list **b);
+void	push_b(l_list **a);
+void	swap_a(l_list **a);
+void	swap_b(l_list **b);
+void	swap_s(l_list **a, l_list **b);
+void	reverse_rotate_a(l_list **a);
+void	reverse_rotate_b(l_list **b);
+void	reverse_rotate_r(l_list **a, l_list **b);
+void	ft_ladd_back(l_list **lst, l_list *new);
+void	ft_ladd_front(l_list **lst, l_list *new);
+void	ft_lclear(l_list **lst, void (*del)(void *));
+void	ft_ldelone(l_list *lst, void (*del)(void *));
+void	ft_liter(_list *lst, void (*f)(void *));
+l_list	*ft_llast(l_list *lst);
+l_list	*ft_lmap(l_list *lst, void *(f)(void *), void (*del)(void *));
+l_list	*ft_lnew(void *content);
+int	ft_lsize(l_list *lst);
 
 #endif
