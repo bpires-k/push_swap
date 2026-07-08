@@ -3,28 +3,38 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = \
+SRC_DIR = src
+
+SRC_INC = \
 	main.c \
-	parsing.c \
-	utils.c \
 	push.c \
 	swap.c \
 	rotate.c \
 	reverse_rotate.c \
-	simple.c \
-	medium.c \
-	cost.c \
-	move.c \
+	simple_algo.c \
+	medium_algo.c \
+	complex_algo.c \
+	custom_algo.c \
 	stack_init.c \
-	index.c \
-	errors.c
+	init_stack.c \
+	ft_ladd_back.c \
+	ft_ladd_front.c \
+	ft_ldelone.c \
+	ft_lclear.c \
+	ft_liter.c \
+	ft_llast.c \
+	ft_lsize.c \
+	ft_lmap.c \
+	ft_lnew.c \
+	helper_funct.c
 
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_INC))
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-INCLUDES = -I. -I$(LIBFT_DIR)
+INCLUDES = -I. -I$(LIBFT_DIR) -Isrc
 
 all: $(LIBFT) $(NAME)
 

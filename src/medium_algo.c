@@ -56,7 +56,7 @@ void	select_sort(l_list **b, l_list **a)
 		r_count += 1;
 	}
 	moves(b, count, r_count);
-	push_a(b)
+	push_a(b);
 }
 
 void	bucket_sort(l_list **a, l_list **b)

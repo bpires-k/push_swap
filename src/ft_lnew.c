@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_algo.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/05 14:50:13 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/05 14:50:22 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 22:53:48 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 22:53:49 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	find_min(t_list **lst)
+t_dlist	*ft_lnew(int content)
 {
-	int	min;
+	t_dlist	*new;
 
-	min = INT_MIN;
-	while ((*lst)->next != NULL)
-	{
-		if (min > (*lst)->content)
-			min = (*lst)->content;
-		else
-			(*lst) = (*lst)->next;
-	}
-	return (min);
-}
-
-t_list	**simple_sort(t_list **a)
-{
-	t_list	**b;
-
-	if (!a)
+	new = (t_dlist *) malloc(sizeof(t_dlist));
+	if (!new)
 		return (NULL);
-	while (ft_lstsize(*a) > 1)
-	{
-		while ((*a)->content != find_min(a))
-			rotate_a(a);
-		push_b(a, b);
-	}
-	while (b)
-		push_a(a, b);
-	return (a);
+	new -> content = content;
+	new -> next = NULL;
+	return (new);
 }

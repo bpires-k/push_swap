@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static long	ft_atol(const char *nptr)
 {
@@ -63,13 +63,13 @@ static int	error_syntax(char *a)
 	return (0);
 }
 
-static int	error_duplicate(l_list **a, int n)
+static int	error_duplicate(t_dlist **a, int n)
 {
 	while ((*a)->next)
 	{
 		if ((*a)->content == n)
 			return (1);
-		(*a) = (*a)->next;	
+		(*a) = (*a)->next;
 	}
 	return (0);
 }
@@ -104,8 +104,10 @@ void	init_stack_a(char **list)
 {
 	long	n;
 	int		i;
-	
+	t_dlist	**a;
+
 	i = 0;
+	a = (t_dlist **) malloc(sizeof(t_dlist *));
 	while (list[i])
 	{
 		if (error_syntax(list[i]))
@@ -113,9 +115,9 @@ void	init_stack_a(char **list)
 		n = ft_atol(list[i]);
 		if (n < INT_MIN || n > INT_MAX)
 			ft_lclear(a, free);
-		if(error_duplicate(a, (int)n))
+		if (error_duplicate(a, (int)n))
 			ft_lclear(a, free);
-		ft_ladd_back(a, ft_lstnew(n));
+		ft_ladd_back(a, ft_lnew(n));
 		i++;
 	}
 }

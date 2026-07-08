@@ -12,31 +12,31 @@
 
 #include "../push_swap.h"
 
-void	push_a(t_list **a, t_list **b)
+void	push_a(t_dlist **a, t_dlist **b)
 {
-	if (!b || (*b) -> next == NULL)
-		return;
+	if (!b || (*b)->next == NULL)
+		return ;
 	else
 	{
-		ft_lstadd_front(a, *b);
-		ft_lstdelone(*b, free);
-		write(1, "pa", 2);
-		return;
+		ft_ladd_front(a, *b);
+		ft_ldelone(*b, free);
+		write(1, "pa\n", 3);
+		return ;
 	}
 }
 
-void	push_b(t_list **a, t_list **b)
+void	push_b(t_dlist **a, t_dlist **b)
 {
-	if (!a || (*a) -> next == NULL)
-		return;
+	if (!a || (*a)->next == NULL)
+		return ;
 	else
 	{
 		if (!b)
-			*b = ft_lstnew((*a)->content);
+			*b = ft_lnew((*a)->content);
 		else
-			ft_lstadd_front(b, *a);
-		ft_lstdelone(*a, free);
-		write(1, "pb", 2);
-		return;
+			ft_ladd_front(b, *a);
+		ft_ldelone(*a, free);
+		write(1, "pb\n", 3);
+		return ;
 	}
 }

@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 13:40:47 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/06/29 13:51:48 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 22:53:01 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 22:53:02 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	push_swap(int argc, int* argv)
+void	ft_ldelone(t_dlist *lst, void (*del)(void *))
 {
-	if
+	if (!lst || !del)
+		return ;
+	del(lst);
+	free(lst);
 }

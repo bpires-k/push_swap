@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_algo.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/05 14:50:13 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/05 14:50:22 by bpires-k         ###   ########.fr       */
+/*   Created: 2026/05/19 22:53:32 by bpires-k          #+#    #+#             */
+/*   Updated: 2026/05/19 22:53:34 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	find_min(t_list **lst)
+t_dlist	*ft_lmap(t_dlist *lst, void *(f)(void *), void (*del)(void *))
 {
-	int	min;
+	t_dlist	*new_lst;
+	t_dlist	*new_node;
 
-	min = INT_MIN;
-	while ((*lst)->next != NULL)
-	{
-		if (min > (*lst)->content)
-			min = (*lst)->content;
-		else
-			(*lst) = (*lst)->next;
-	}
-	return (min);
-}
-
-t_list	**simple_sort(t_list **a)
-{
-	t_list	**b;
-
-	if (!a)
+	if (!lst || !f || !del)
 		return (NULL);
-	while (ft_lstsize(*a) > 1)
+	new_lst = NULL;
+	while (lst)
 	{
-		while ((*a)->content != find_min(a))
-			rotate_a(a);
-		push_b(a, b);
+		new_node = ft_lnew(f(lst->content));
+		if (!new_node)
+			return (ft_lclear(&new_lst, del), NULL);
+		ft_ladd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
-	while (b)
-		push_a(a, b);
-	return (a);
+	return (new_lst);
 }

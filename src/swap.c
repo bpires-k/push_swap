@@ -10,40 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	swap_a(l_list **a)
+void	swap_a(t_dlist **a)
 {
-	l_list *temp;
+	t_dlist	*temp;
 
 	if (!a)
-		return;
+		return ;
 	temp = *a;
 	*a = (*a)->next;
 	(*a)-> next = temp;
 	write(1, "sa\n", 3);
-	return;
+	return ;
 }
 
-void	swap_b(l_list **b)
+void	swap_b(t_dlist **b)
 {
-	l_list *temp;
+	t_dlist	*temp;
 
 	if (!b)
-		return;
+		return ;
 	temp = *b;
 	*b = (*b)->next;
 	(*b)-> next = temp;
 	write(1, "sb\n", 3);
-	return;
+	return ;
 }
 
-void	swap_s(l_list **a, l_list **b)
+void	swap_s(t_dlist **a, t_dlist **b)
 {
-	l_list *temp;
+	t_dlist	*temp;
 
 	if (!a || !b)
-		return;
+		return ;
 	temp = *a;
 	*a = (*a)->next;
 	(*a)-> next = temp;
@@ -51,5 +51,5 @@ void	swap_s(l_list **a, l_list **b)
 	*b = (*b)->next;
 	(*b)-> next = temp;
 	write(1, "ss\n", 3);
-	return;
+	return ;
 }
