@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	moves(l_list **b, int count, int r_count)
+void	moves(t_dlist **b, int count, int r_count)
 {
 	if (count < r_count)
 	{
@@ -32,11 +32,11 @@ void	moves(l_list **b, int count, int r_count)
 	}
 }
 
-void	select_sort(l_list **b, l_list **a)
+void	select_sort(t_dlist **b, t_dlist **a)
 {
-	l_list	*head;
-	l_list	*tail;
-	l_list	*pivot;
+	t_dlist	*head;
+	t_dlist	*tail;
+	t_dlist	*pivot;
 	int		count;
 	int		r_count;
 
@@ -59,7 +59,7 @@ void	select_sort(l_list **b, l_list **a)
 	push_a(b);
 }
 
-void	bucket_sort(l_list **a, l_list **b)
+void	bucket_sort(t_dlist **a, t_dlist **b)
 {
 	int	i;
 	int	range;
@@ -78,15 +78,18 @@ void	bucket_sort(l_list **a, l_list **b)
 		else if ((*a)->index <= i + range)
 		{
 			push_b(a);
-			si++;
+			i++;
 		}
 		else
 			rotate_a(a);
 	}
 }
 
-t_list	**medium_sort(t_list **a)
+t_dlist	**medium_sort(t_dlist **a)
 {
+	t_dlist	**b;
+
+	b = NULL;
 	bucket_sort(a, b);
 	while (*b)
 		select_sort(b, a);

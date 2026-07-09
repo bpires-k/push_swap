@@ -25,12 +25,12 @@ typedef struct ds_node
 }	t_dlist;
 
 float	compute_disorder(t_dlist *a);
-void	init_stack_a(char **list);
+t_dlist	**init_stack_a(char **list);
 void	rotate_a(t_dlist **a);
 void	rotate_b(t_dlist **b);
 void	rotate_r(t_dlist **a, t_dlist **b);
-void	push_a(t_dlist **b);
-void	push_b(t_dlist **a);
+void	push_a(t_dlist **a, t_dlist **b);
+void	push_b(t_dlist **a, t_dlist **b);
 void	swap_a(t_dlist **a);
 void	swap_b(t_dlist **b);
 void	swap_s(t_dlist **a, t_dlist **b);
@@ -47,5 +47,10 @@ t_dlist	*ft_lmap(t_dlist *lst, void *(f)(void *), void (*del)(void *));
 t_dlist	*ft_lnew(int content);
 int		ft_lsize(t_dlist *lst);
 void	init_index(t_dlist **a);
+t_dlist	**simple_sort(t_dlist **a);
+t_dlist	**medium_sort(t_dlist **a);
+t_dlist	**complex_sort(t_dlist **a);
+t_dlist	**adaptive_sort(t_dlist **a);
+int		ft_lmaxindex(t_dlist **stack);
 
 #endif

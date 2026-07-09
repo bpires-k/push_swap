@@ -100,7 +100,7 @@ static int	error_duplicate(t_dlist **a, int n)
 	}
 }*/
 
-void	init_stack_a(char **list)
+t_dlist	**init_stack_a(char **list)
 {
 	long	n;
 	int		i;
@@ -120,4 +120,5 @@ void	init_stack_a(char **list)
 		ft_ladd_back(a, ft_lnew(n));
 		i++;
 	}
+	return (a);
 }

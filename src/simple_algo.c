@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-static int	find_min(t_list **lst)
+static int	find_min(t_dlist **lst)
 {
 	int	min;
 
@@ -27,13 +27,14 @@ static int	find_min(t_list **lst)
 	return (min);
 }
 
-t_list	**simple_sort(t_list **a)
+t_dlist	**simple_sort(t_dlist **a)
 {
-	t_list	**b;
+	t_dlist	**b;
 
+	b = NULL;
 	if (!a)
 		return (NULL);
-	while (ft_lstsize(*a) > 1)
+	while (ft_lsize(*a) > 1)
 	{
 		while ((*a)->content != find_min(a))
 			rotate_a(a);

@@ -12,15 +12,34 @@
 
 #include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_stack(t_dlist **a, char *flag, float disorder)
 {
-	char	**list;
+	if (!a || !flag || !disorder)
+		return ;
+	if (ft_strncmp(flag, "--simple", 8) == 0)
+		a = simple_sort(a);
+	else if (ft_strncmp(flag, "--medium", 8) == 0)
+		a = medium_sort(a);
+	else if (ft_strncmp(flag, "--complex", 9) == 0)
+		a = complex_sort(a);
+	else if (ft_strncmp(flag, "--adaptive", 10) == 0)
+		a = adaptive_sort(a);
+	return ;
+}
 
+int	main(int argc, char **argv)
+{	
+	char	*flag;
+	int		i;
+	t_dlist	**a;
+
+	i = 0;
 	if (argc < 2)
 		return (0);
-	else if (argc == 2)
-		list = ft_split(argv[1]);
+	if (ft_strncmp(argv[1], "--", 2) == 0)
+		flag = argv[i++];
 	else
-		list = argv[1:];
-	init_stack_a(list);
+		flag = "--adaptive";
+	a = init_stack_a(argv + i);
+	sort_stack(a, flag, compute_disorder(*a));
 }
