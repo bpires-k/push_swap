@@ -6,11 +6,23 @@
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:06:54 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/05 17:06:59 by bpires-k         ###   ########.fr       */
+/*   Updated: 2026/07/13 18:29:11 by bpires-k         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static int	ft_sqrt(int nb)
+{
+	int	i;
+
+	i = 0;
+	while (i * i < nb)
+	{
+		i++;
+	}
+	return (i);
+}
 
 void	moves(t_dlist **b, int count, int r_count)
 {
@@ -43,8 +55,8 @@ void	select_sort(t_dlist **b, t_dlist **a)
 	count = 0;
 	r_count = 0;
 	head = (*b);
-	tail = ft_llast(b);
-	pivot = ft_lmax_index(b);
+	tail = ft_llast(*b);
+	pivot = ft_lmaxindex(*b);
 	while (head->index != pivot->index)
 	{
 		head = head->next;
@@ -56,7 +68,7 @@ void	select_sort(t_dlist **b, t_dlist **a)
 		r_count += 1;
 	}
 	moves(b, count, r_count);
-	push_a(b);
+	push_a(a, b);
 }
 
 void	bucket_sort(t_dlist **a, t_dlist **b)
@@ -65,19 +77,19 @@ void	bucket_sort(t_dlist **a, t_dlist **b)
 	int	range;
 
 	i = 0;
-	range = (int)ft_sqrt(ft_lsize(*a));
+	range = ft_sqrt(ft_lsize(*a));
 	while (*a)
 	{
 		if ((*a)->index <= i)
 		{
-			push_b(a);
+			push_b(a, b);
 			if (ft_lsize(*b) > 1)
 				rotate_b(b);
 			i++;
 		}
 		else if ((*a)->index <= i + range)
 		{
-			push_b(a);
+			push_b(a, b);
 			i++;
 		}
 		else
