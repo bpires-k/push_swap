@@ -15,7 +15,6 @@ SRC_INC = \
 	medium_algo.c \
 	complex_algo.c \
 	custom_algo.c \
-	stack_init.c \
 	init_stack.c \
 	ft_ladd_back.c \
 	ft_ladd_front.c \
@@ -24,7 +23,6 @@ SRC_INC = \
 	ft_liter.c \
 	ft_llast.c \
 	ft_lsize.c \
-	ft_lmap.c \
 	ft_lnew.c \
 	helper_funct.c
 
