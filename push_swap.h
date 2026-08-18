@@ -6,7 +6,7 @@
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 16:11:26 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/13 18:25:51 by bpires-k         ###   ########.fr       */
+/*   Updated: 2026/08/08 23:05:45 by bkolmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ t_dlist	**simple_sort(t_dlist **a);
 t_dlist	**medium_sort(t_dlist **a);
 t_dlist	**complex_sort(t_dlist **a);
 t_dlist	**adaptive_sort(t_dlist **a);
+t_dlist	*ft_lminindex(t_dlist *node);
 t_dlist	*ft_lmaxindex(t_dlist *node);
-
 #endif

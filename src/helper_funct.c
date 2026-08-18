@@ -6,11 +6,39 @@
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:46:59 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/06/29 16:03:55 by bpires-k         ###   ########.fr       */
+/*   Updated: 2026/08/08 23:04:53 by bkolmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+t_dlist *ft_lmaxindex(t_dlist *node)
+{
+	t_dlist	*max;
+	max = node;
+	node = node->next;
+	while (node)
+	{
+		if (max->content < node->content)
+			max = node;
+		node = node->next;
+	}
+	return (max);
+}
+
+t_dlist	*ft_lminindex(t_dlist *node)
+{
+	t_dlist	*min;
+	min = node;
+	node = node->next;
+	while (node)
+	{
+		if (min->content > node->content)
+			min = node;
+		node = node->next;
+	}
+	return (min);
+}
 
 float	compute_disorder(t_dlist *a)
 {

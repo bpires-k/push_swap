@@ -6,7 +6,7 @@
 /*   By: bpires-k <bpires-k@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:06:54 by bpires-k          #+#    #+#             */
-/*   Updated: 2026/07/13 18:29:11 by bpires-k         ###   ########.fr       */
+/*   Updated: 2026/08/08 23:01:18 by bkolmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	select_sort(t_dlist **b, t_dlist **a)
 	r_count = 0;
 	head = (*b);
 	tail = ft_llast(*b);
-	pivot = ft_lmaxindex(*b);
+	pivot = ft_lminindex(*b);
 	while (head->index != pivot->index)
 	{
 		head = head->next;

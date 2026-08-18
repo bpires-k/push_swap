@@ -14,7 +14,7 @@ NAME = push_swap
 
 SRC = src/push_swap.c src/check_input.c src/utils.c src/create_stack.c \
 		src/basic_moves.c src/rotate_moves.c src/complex_moves.c \
-		src/complex_moves_start.c src/complex_moves_do.c
+		src/complex_moves_start.c
 OBJS = ${SRC:.c=.o}
 
 CC = cc
