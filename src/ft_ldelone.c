@@ -16,6 +16,7 @@ void	ft_ldelone(t_dlist *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
+	(lst->next)->prev = NULL;
 	del(lst);
 	free(lst);
 }

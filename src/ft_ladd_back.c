@@ -23,4 +23,5 @@ void	ft_ladd_back(t_dlist **lst, t_dlist *new)
 	}
 	ft_llast(*lst)-> next = new;
 	new -> prev = ft_llast(*lst);
+	new->next = NULL;
 }

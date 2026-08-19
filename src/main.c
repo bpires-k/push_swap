@@ -20,8 +20,8 @@ void	sort_stack(t_dlist **a, char *flag, float disorder)
 		a = simple_sort(a);
 	else if (ft_strncmp(flag, "--medium", 8) == 0)
 		a = medium_sort(a);
-	else if (ft_strncmp(flag, "--complex", 9) == 0)
-		a = complex_sort(a);
+	/*else if (ft_strncmp(flag, "--complex", 9) == 0)
+		a = complex_sort(a);*/
 	else if (ft_strncmp(flag, "--adaptive", 10) == 0)
 		a = adaptive_sort(a);
 	return ;
@@ -40,6 +40,6 @@ int	main(int argc, char **argv)
 		flag = argv[i++];
 	else
 		flag = "--adaptive";
-	a = init_stack_a(argv + i);
+	a = init_stack_a(argv + i + 1);
 	sort_stack(a, flag, compute_disorder(*a));
 }

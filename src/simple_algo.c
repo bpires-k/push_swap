@@ -14,15 +14,17 @@
 
 static int	find_min(t_dlist **lst)
 {
-	int	min;
+	int		min;
+	t_dlist	*current;
 
+	current = *lst;
 	min = INT_MIN;
-	while ((*lst)->next != NULL)
+	while (current)
 	{
-		if (min > (*lst)->content)
-			min = (*lst)->content;
+		if (min > current->content)
+			min = current->content;
 		else
-			(*lst) = (*lst)->next;
+			current = current->next;
 	}
 	return (min);
 }

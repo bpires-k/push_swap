@@ -29,7 +29,7 @@ SRC_INC = \
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_INC))
 OBJ = $(SRC:.c=.o)
 
-LIBFT_DIR = ./libft
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 INCLUDES = -I. -I$(LIBFT_DIR) -Isrc

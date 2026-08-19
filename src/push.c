@@ -14,12 +14,15 @@
 
 void	push_a(t_dlist **a, t_dlist **b)
 {
-	if (!b || (*b)->next == NULL)
+	t_dlist	*node;
+
+	node = *b
+	if (!node || node->next == NULL)
 		return ;
 	else
 	{
-		ft_ladd_front(a, *b);
-		ft_ldelone(*b, free);
+		*b = node->next;
+		ft_ladd_front(a, node);	
 		write(1, "pa\n", 3);
 		return ;
 	}
@@ -27,15 +30,18 @@ void	push_a(t_dlist **a, t_dlist **b)
 
 void	push_b(t_dlist **a, t_dlist **b)
 {
-	if (!a || (*a)->next == NULL)
+	t_dlist	*node;
+
+	node = *a
+	if (!node || node->next == NULL)
 		return ;
 	else
 	{
+		*a = node->next;
 		if (!b)
-			*b = ft_lnew((*a)->content);
+			*b = ft_lnew(node->content);
 		else
-			ft_ladd_front(b, *a);
-		ft_ldelone(*a, free);
+			ft_ladd_front(b,node);
 		write(1, "pb\n", 3);
 		return ;
 	}

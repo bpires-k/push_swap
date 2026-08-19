@@ -14,32 +14,43 @@
 
 void	reverse_rotate_a(t_dlist **a)
 {
+	t_dlist	*node;
+
+	node = (*a)->next;
 	if (!a)
 		return ;
-	ft_ladd_back(a, (*a));
-	ft_ldelone((*a), free);
+	ft_ladd_back(a, *a);
+	node->prev = NULL;	
 	write(1, "rra\n", 4);
 	return ;
 }
 
 void	reverse_rotate_b(t_dlist **b)
 {
+	t_dlist	*node;
+
+	node = (*b)->next;
 	if (!b)
 		return ;
 	ft_ladd_back(b, (*b));
-	ft_ldelone((*b), free);
+	node->prev = NULL;
 	write(1, "rrb\n", 4);
 	return ;
 }
 
 void	reverse_rotate_r(t_dlist **a, t_dlist **b)
 {
+	t_dlist	*node_a;
+	t_dlist	*node_b;
+
+	node_a = (*a)->next;
+	node_b = (*b)->next
 	if (!a || !b)
 		return ;
 	ft_ladd_back(a, (*a));
-	ft_ldelone((*a), free);
+	node_a->prev = NULL;
 	ft_ladd_back(b, (*b));
-	ft_ldelone((*b), free);
+	node_b->prev = NULL;
 	write(1, "rrr\n", 4);
 	return ;
 }

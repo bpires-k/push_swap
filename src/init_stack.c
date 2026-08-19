@@ -65,11 +65,14 @@ static int	error_syntax(char *a)
 
 static int	error_duplicate(t_dlist **a, int n)
 {
-	while ((*a)->next)
+	t_dlist *current;
+
+	current = *a;
+	while (current)
 	{
-		if ((*a)->content == n)
+		if (current->content == n)
 			return (1);
-		(*a) = (*a)->next;
+		current = current->next;
 	}
 	return (0);
 }
