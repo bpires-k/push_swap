@@ -18,7 +18,7 @@ static int	find_min(t_dlist **lst)
 	t_dlist	*current;
 
 	current = *lst;
-	min = INT_MIN;
+	min = INT_MAX;
 	while (current)
 	{
 		if (min > current->content)
@@ -29,12 +29,9 @@ static int	find_min(t_dlist **lst)
 	return (min);
 }
 
-t_dlist	**simple_sort(t_dlist **a)
+t_dlist	**simple_sort(t_dlist **a, t_dlist **b)
 {
-	t_dlist	**b;
-
-	b = NULL;
-	if (!a)
+	if (!a || !b)
 		return (NULL);
 	while (ft_lsize(*a) > 1)
 	{
@@ -42,7 +39,7 @@ t_dlist	**simple_sort(t_dlist **a)
 			rotate_a(a);
 		push_b(a, b);
 	}
-	while (b)
+	while (*b)
 		push_a(a, b);
 	return (a);
 }

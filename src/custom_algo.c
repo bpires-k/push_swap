@@ -12,15 +12,12 @@
 
 #include "../push_swap.h"
 
-t_dlist	**adaptive_sort(t_dlist **a)
+t_dlist	**adaptive_sort(t_dlist **a, t_dlist **b, float disorder)
 {
-	float	cd_a;
-
-	cd_a = compute_disorder(*a);
-	if (cd_a < 0.2)
-		return (simple_sort(a));
+	if (disorder < 0.2)
+		return (simple_sort(a, b));
 	else /*(cd_a >= 0.2 && cd_a < 0.5)*/
-		return (medium_sort(a));
+		return (medium_sort(a, b));
 	/*else
 		return (complex_sort(a));*/
 }

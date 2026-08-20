@@ -19,7 +19,7 @@ t_dlist *ft_lmaxindex(t_dlist *node)
 	node = node->next;
 	while (node)
 	{
-		if (max->content < node->content)
+		if (max->index < node->index)
 			max = node;
 		node = node->next;
 	}
@@ -33,7 +33,7 @@ t_dlist	*ft_lminindex(t_dlist *node)
 	node = node->next;
 	while (node)
 	{
-		if (min->content > node->content)
+		if (min->index > node->index)
 			min = node;
 		node = node->next;
 	}
@@ -47,14 +47,14 @@ float	compute_disorder(t_dlist *a)
 
 	mistakes = 0;
 	total_pairs = 0;
-	while (a->next)
+	while (a)
 	{
 		total_pairs += 1;
 		if (a->content > (a->next)->content)
 			mistakes += 1;
 		a = a->next;
 	}
-	return (mistakes / total_pairs);
+	return ((float)mistakes / total_pairs);
 }
 
 void	init_index(t_dlist **a)
@@ -66,7 +66,7 @@ void	init_index(t_dlist **a)
 	current = *a;
 	while (current != NULL)
 	{
-		count = 0;
+		count = 1;
 		stack_dupe = *a;
 		while (stack_dupe != NULL)
 		{

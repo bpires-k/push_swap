@@ -28,7 +28,7 @@ void	moves(t_dlist **b, int count, int r_count)
 {
 	if (count < r_count)
 	{
-		while (count <= 0)
+		while (count > 0)
 		{
 			rotate_b(b);
 			count -= 1;
@@ -36,7 +36,7 @@ void	moves(t_dlist **b, int count, int r_count)
 	}
 	else
 	{
-		while (r_count <= 0)
+		while (r_count > 0)
 		{
 			reverse_rotate_b(b);
 			r_count -= 1;
@@ -97,11 +97,10 @@ void	bucket_sort(t_dlist **a, t_dlist **b)
 	}
 }
 
-t_dlist	**medium_sort(t_dlist **a)
+t_dlist	**medium_sort(t_dlist **a, t_dlist **b)
 {
-	t_dlist	**b;
-
-	b = NULL;
+	if (!a || !b)
+		return (NULL);
 	bucket_sort(a, b);
 	while (*b)
 		select_sort(b, a);

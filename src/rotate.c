@@ -14,7 +14,7 @@
 
 void	rotate_a(t_dlist **a)
 {
-	if (!a)
+	if (!a || !*a || !(*a)->next)
 		return ;
 	ft_ladd_front(a, ft_llast(*a));
 	ft_llast(*a)->next = NULL;	
@@ -24,7 +24,7 @@ void	rotate_a(t_dlist **a)
 
 void	rotate_b(t_dlist **b)
 {
-	if (!b)
+	if (!b || !*b || !(*b)->next)
 		return ;
 	ft_ladd_front(b, ft_llast(*b));
 	ft_llast(*b)->next = NULL;	
@@ -34,7 +34,7 @@ void	rotate_b(t_dlist **b)
 
 void	rotate_r(t_dlist **a, t_dlist **b)
 {
-	if (!a || !b)
+	if (!a || !b || !*a || !*b || !(*a)->next || !(*b)->next)
 		return ;
 	ft_ladd_front(a, ft_llast(*a));
 	ft_llast(*a)->next = NULL;	

@@ -21,5 +21,7 @@ t_dlist	*ft_lnew(int content)
 		return (NULL);
 	new -> content = content;
 	new -> next = NULL;
+	new -> prev = NULL;
+	new -> index = 0;
 	return (new);
 }

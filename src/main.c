@@ -14,16 +14,20 @@
 
 void	sort_stack(t_dlist **a, char *flag, float disorder)
 {
-	if (!a || !flag || !disorder)
+	t_dlist	**b;
+
+	b = (t_dlist **) malloc(sizeof(t_dlist *));
+	*b = NULL;
+	if (!a || !flag)
 		return ;
 	if (ft_strncmp(flag, "--simple", 8) == 0)
-		a = simple_sort(a);
+		a = simple_sort(a, b);
 	else if (ft_strncmp(flag, "--medium", 8) == 0)
-		a = medium_sort(a);
+		a = medium_sort(a, b);
 	/*else if (ft_strncmp(flag, "--complex", 9) == 0)
 		a = complex_sort(a);*/
 	else if (ft_strncmp(flag, "--adaptive", 10) == 0)
-		a = adaptive_sort(a);
+		a = adaptive_sort(a, b, disorder);
 	return ;
 }
 
@@ -41,5 +45,8 @@ int	main(int argc, char **argv)
 	else
 		flag = "--adaptive";
 	a = init_stack_a(argv + i + 1);
+	if (!a || !*a)
+		return (1);
 	sort_stack(a, flag, compute_disorder(*a));
+	return (0);
 }

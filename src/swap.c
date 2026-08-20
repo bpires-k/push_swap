@@ -16,7 +16,7 @@ void	swap_a(t_dlist **a)
 {
 	t_dlist	*temp;
 
-	if (!a)
+	if (!a || !*a || !(*a)->next)
 		return ;
 	temp = *a;
 	*a = (*a)->next;
@@ -31,7 +31,7 @@ void	swap_b(t_dlist **b)
 {
 	t_dlist	*temp;
 
-	if (!b)
+	if (!b || !*b || !(*b)->next)
 		return ;
 	temp = *b;
 	*b = (*b)->next;
@@ -46,7 +46,7 @@ void	swap_s(t_dlist **a, t_dlist **b)
 {
 	t_dlist	*temp;
 
-	if (!a || !b)
+	if (!a || !b || !*a || !*b || !(*a)->next || !(*b)->next)
 		return ;
 	temp = *a;
 	*a = (*a)->next;

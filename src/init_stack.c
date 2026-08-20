@@ -56,8 +56,9 @@ static int	error_syntax(char *a)
 	i = 0;
 	while (a[i])
 	{
-		if (a[i] > '0' || a[i] < '9')
-			return (1);
+		if (!(a[i] >= '0' && a[i] <= '9'))
+			if (!(a[i] == '+' || a[i] == '-'))
+				return (1);
 		i++;
 	}
 	return (0);
@@ -111,10 +112,14 @@ t_dlist	**init_stack_a(char **list)
 
 	i = 0;
 	a = (t_dlist **) malloc(sizeof(t_dlist *));
+	*a = NULL;
 	while (list[i])
 	{
 		if (error_syntax(list[i]))
+		{
 			ft_lclear(a, free);
+			return (NULL);
+		}
 		n = ft_atol(list[i]);
 		if (n < INT_MIN || n > INT_MAX)
 			ft_lclear(a, free);
@@ -123,5 +128,6 @@ t_dlist	**init_stack_a(char **list)
 		ft_ladd_back(a, ft_lnew(n));
 		i++;
 	}
+	init_index(a);
 	return (a);
 }
