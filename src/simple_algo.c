@@ -36,10 +36,10 @@ t_dlist	**simple_sort(t_dlist **a, t_dlist **b)
 	while (ft_lsize(*a) > 1)
 	{
 		while ((*a)->content != find_min(a))
-			rotate_a(a);
+			rotate_a(a);	
 		push_b(a, b);
 	}
 	while (*b)
-		push_a(a, b);
+		push_a(a, b);	
 	return (a);
 }

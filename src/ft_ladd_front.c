@@ -16,6 +16,7 @@ void	ft_ladd_front(t_dlist **lst, t_dlist *new)
 {
 	if (!lst || !new)
 		return ;
+	new->prev = NULL;
 	new -> next = *lst;
 	if (*lst)
 		(*lst)->prev = new;

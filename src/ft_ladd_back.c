@@ -16,9 +16,9 @@ void	ft_ladd_back(t_dlist **lst, t_dlist *new)
 {
 	t_dlist	*last;
 
-	last = ft_llast(*lst);
 	if (!lst || !new)
 		return ;
+	last = ft_llast(*lst);
 	if (!*lst)
 	{
 		*lst = new;

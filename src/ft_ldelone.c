@@ -18,6 +18,8 @@ void	ft_ldelone(t_dlist *lst, void (*del)(void *))
 		return ;
 	if (lst->next)
 		(lst->next)->prev = lst->prev;
+	if (lst->prev)
+		(lst->prev)->next = lst->next;
 	del(lst);
 	free(lst);
 }

@@ -22,8 +22,7 @@ void	push_a(t_dlist **a, t_dlist **b)
 	else
 	{
 		*b = node->next;
-		ft_ladd_front(a, node);
-		ft_ldelone(*b, free);
+		ft_ladd_front(a, node);	
 		write(1, "pa\n", 3);
 		return ;
 	}
@@ -39,13 +38,7 @@ void	push_b(t_dlist **a, t_dlist **b)
 	else
 	{
 		*a = node->next;
-		if (!*b)
-			*b = node;
-		else
-		{
-			ft_ladd_front(b,node);
-			ft_ldelone(*a, free);
-		}
+		ft_ladd_front(b,node);	
 		write(1, "pb\n", 3);
 		return ;
 	}

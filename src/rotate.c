@@ -14,32 +14,53 @@
 
 void	rotate_a(t_dlist **a)
 {
+	t_dlist	*last;
 	if (!a || !*a || !(*a)->next)
 		return ;
-	ft_ladd_front(a, ft_llast(*a));
-	ft_llast(*a)->next = NULL;	
+	last = ft_llast(*a);
+	(*a)->next->prev = NULL;
+	(*a)->prev = last;
+	(*a)->next = NULL;
+	last->next = *a;	
 	write(1, "ra\n", 3);
 	return ;
 }
 
 void	rotate_b(t_dlist **b)
 {
+	t_dlist	*last;
+
 	if (!b || !*b || !(*b)->next)
 		return ;
-	ft_ladd_front(b, ft_llast(*b));
-	ft_llast(*b)->next = NULL;	
+	last = ft_llast(*b);
+	(*b)->next->prev = NULL;
+	(*b)->prev = last;
+	(*b)->next = NULL;
+	last->next = *b;
 	write(1, "rb\n", 3);
 	return ;
 }
 
 void	rotate_r(t_dlist **a, t_dlist **b)
 {
-	if (!a || !b || !*a || !*b || !(*a)->next || !(*b)->next)
-		return ;
-	ft_ladd_front(a, ft_llast(*a));
-	ft_llast(*a)->next = NULL;	
-	ft_ladd_front(b, ft_llast(*b));
-	ft_llast(*b)->next = NULL;
+	t_dlist	*last;
+
+	if (a || *a || (*a)->next) 
+	{
+		last = ft_llast(*a);
+		(*a)->next->prev = NULL;
+		(*a)->prev = last;
+		(*a)->next = NULL;
+		last->next = *a;
+	}
+	if ( b || *b || (*b)->next)
+	{
+		last = ft_llast(*b);
+		(*b)->next->prev = NULL;
+		(*b)->prev = last;
+		(*b)->next = NULL;
+		last->next = *b;
+	}
 	write(1, "rr\n", 3);
 	return ;
 }
