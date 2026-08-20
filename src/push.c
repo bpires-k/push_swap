@@ -16,7 +16,7 @@ void	push_a(t_dlist **a, t_dlist **b)
 {
 	t_dlist	*node;
 
-	node = *b
+	node = *b;
 	if (!node || node->next == NULL)
 		return ;
 	else
@@ -32,7 +32,7 @@ void	push_b(t_dlist **a, t_dlist **b)
 {
 	t_dlist	*node;
 
-	node = *a
+	node = *a;
 	if (!node || node->next == NULL)
 		return ;
 	else

@@ -13,7 +13,6 @@ SRC_INC = \
 	reverse_rotate.c \
 	simple_algo.c \
 	medium_algo.c \
-	complex_algo.c \
 	custom_algo.c \
 	init_stack.c \
 	ft_ladd_back.c \

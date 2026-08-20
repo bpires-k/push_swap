@@ -20,7 +20,7 @@ void	swap_a(t_dlist **a)
 		return ;
 	temp = *a;
 	*a = (*a)->next;
-	*a->prev = NULL
+	(*a)->prev = NULL;
 	(*a)-> next = temp;
 	temp->prev = (*a);
 	write(1, "sa\n", 3);
@@ -35,7 +35,7 @@ void	swap_b(t_dlist **b)
 		return ;
 	temp = *b;
 	*b = (*b)->next;
-	*b->prev = NULL;
+	(*b)->prev = NULL;
 	(*b)-> next = temp;
 	temp->prev = (*b);
 	write(1, "sb\n", 3);

@@ -44,7 +44,7 @@ void	reverse_rotate_r(t_dlist **a, t_dlist **b)
 	t_dlist	*node_b;
 
 	node_a = (*a)->next;
-	node_b = (*b)->next
+	node_b = (*b)->next;
 	if (!a || !b)
 		return ;
 	ft_ladd_back(a, (*a));

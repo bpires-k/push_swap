@@ -19,8 +19,8 @@ t_dlist	**adaptive_sort(t_dlist **a)
 	cd_a = compute_disorder(*a);
 	if (cd_a < 0.2)
 		return (simple_sort(a));
-	else if (cd_a >= 0.2 && cd_a < 0.5)
+	else /*(cd_a >= 0.2 && cd_a < 0.5)*/
 		return (medium_sort(a));
-	else
-		return (complex_sort(a));
+	/*else
+		return (complex_sort(a));*/
 }
