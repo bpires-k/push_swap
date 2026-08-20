@@ -53,7 +53,7 @@ void	rotate_r(t_dlist **a, t_dlist **b)
 	t_dlist	*last;
 	t_dlist	*head;
 
-	if (a || *a || (*a)->next) 
+	if (a && *a && (*a)->next) 
 	{
 		last = ft_llast(*a);
 		head = (*a)->next;
@@ -63,7 +63,7 @@ void	rotate_r(t_dlist **a, t_dlist **b)
 		last->next = *a;
 		*a = head;
 	}
-	if ( b || *b || (*b)->next)
+	if ( b && *b && (*b)->next)
 	{
 		last = ft_llast(*b);
 		head = (*b)->next;

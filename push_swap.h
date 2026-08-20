@@ -52,4 +52,8 @@ t_dlist **complex_sort(t_dlist **a, t_dlist **b);
 t_dlist **adaptive_sort(t_dlist **a, t_dlist **b, float disorder);
 t_dlist *ft_lminindex(t_dlist *node);
 t_dlist *ft_lmaxindex(t_dlist *node);
+void	moves(t_dlist **b, int count, int r_count);
+void	select_sort(t_dlist **b);
+void	bucket_sort(t_dlist **a, t_dlist **b);
+t_dlist	**small_sort(t_dlist **a);
 #endif

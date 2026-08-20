@@ -14,43 +14,61 @@
 
 void	reverse_rotate_a(t_dlist **a)
 {
-	t_dlist	*node;
+	t_dlist	*head;
+	t_dlist	*last;
 
 	if (!a || !*a || !(*a)->next)
 		return;
-	node = (*a)->next;
-	ft_ladd_back(a, *a);
-	node->prev = NULL;	
+	head = ft_llast(*a);
+	last = head->prev;
+	last->next = NULL;
+	head->prev = NULL;
+	head->next = (*a);
+	*a = head;	
 	write(1, "rra\n", 4);
 	return ;
 }
 
 void	reverse_rotate_b(t_dlist **b)
 {
-	t_dlist	*node;
+	t_dlist	*head;
+	t_dlist	*last;
 
 	if (!b || !*b || !(*b)->next)
 		return;
-	node = (*b)->next; 
-	ft_ladd_back(b, (*b));
-	node->prev = NULL;
+	head = ft_llast(*b);
+	last = head->prev;
+	last->next = NULL;
+	head->prev = NULL;
+	head->next = (*b);
+	*b = head;
 	write(1, "rrb\n", 4);
 	return ;
 }
 
 void	reverse_rotate_r(t_dlist **a, t_dlist **b)
 {
-	t_dlist	*node_a;
-	t_dlist	*node_b;
+	t_dlist	*head;
+	t_dlist	*last;
 
-	if (!a || !b || !*a || !*b || !(*a)->next || !(*b)->next)
-		return;
-	node_a = (*a)->next;
-	node_b = (*b)->next;
-	ft_ladd_back(a, (*a));
-	node_a->prev = NULL;
-	ft_ladd_back(b, (*b));
-	node_b->prev = NULL;
+	if (a && !*a && !(*a)->next)
+	{
+		head = ft_llast(*a);
+		last = head->prev;
+		last->next = NULL;
+		head->prev = NULL;
+		head->next = (*a);
+		(*a) = head;
+	}
+	if (b && !*b && !(*b)->next)
+	{
+		head = ft_llast(*b);
+		last = head->prev;
+		last->next = NULL;
+		head->prev = NULL;
+		head->next = (*b);
+		(*b) = head;
+	}
 	write(1, "rrr\n", 4);
 	return ;
 }

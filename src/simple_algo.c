@@ -12,30 +12,32 @@
 
 #include "../push_swap.h"
 
-static int	find_min(t_dlist **lst)
+t_dlist	**small_sort(t_dlist **a)
 {
-	int		min;
-	t_dlist	*current;
+	int	max;
 
-	current = *lst;
-	min = INT_MAX;
-	while (current)
-	{
-		if (min > current->content)
-			min = current->content;
-		current = current->next;
-	}
-	return (min);
+	if (!a || !*a)
+		return (NULL);
+	max = ft_lmaxindex(*a)->index;
+	if ((*a)->index == max)
+		rotate_a(a);
+	else if ((*a)->next->index == max)
+		reverse_rotate_a(a);
+	if ((*a)->index > (*a)->next->index)
+		swap_a(a);
+	return (a);
 }
 
 t_dlist	**simple_sort(t_dlist **a, t_dlist **b)
 {
 	if (!a || !b)
 		return (NULL);
-	while (ft_lsize(*a) > 1)
+	printf("%i\n", ft_lsize(*a));
+	if (ft_lsize(*a) < 4)
+		return (small_sort(a));
+	while (*a)
 	{
-		while ((*a)->content != find_min(a))
-			rotate_a(a);	
+		select_sort(a);
 		push_b(a, b);
 	}
 	while (*b)
