@@ -118,13 +118,16 @@ t_dlist	**init_stack_a(char **list)
 		if (error_syntax(list[i]))
 		{
 			ft_lclear(a, free);
+			free(a);
 			return (NULL);
 		}
 		n = ft_atol(list[i]);
-		if (n < INT_MIN || n > INT_MAX)
+		if (n < INT_MIN || n > INT_MAX || error_duplicate(a, (int)n))
+		{
 			ft_lclear(a, free);
-		if (error_duplicate(a, (int)n))
-			ft_lclear(a, free);
+			free(a);
+			return (NULL);
+		}
 		ft_ladd_back(a, ft_lnew(n));
 		i++;
 	}

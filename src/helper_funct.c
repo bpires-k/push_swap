@@ -15,6 +15,9 @@
 t_dlist *ft_lmaxindex(t_dlist *node)
 {
 	t_dlist	*max;
+
+	if (!node)
+		return (NULL);
 	max = node;
 	node = node->next;
 	while (node)
@@ -29,6 +32,9 @@ t_dlist *ft_lmaxindex(t_dlist *node)
 t_dlist	*ft_lminindex(t_dlist *node)
 {
 	t_dlist	*min;
+
+	if (!node)
+		return (NULL);
 	min = node;
 	node = node->next;
 	while (node)
@@ -49,11 +55,13 @@ float	compute_disorder(t_dlist *a)
 	total_pairs = 0;
 	while (a && a->next)
 	{
-		total_pairs += 1;
 		if (a->content > (a->next)->content)
-			mistakes += 1;
+			mistakes++;
+		total_pairs++;
 		a = a->next;
 	}
+	if (total_pairs == 0)
+		return (0.0);
 	return ((float)mistakes / total_pairs);
 }
 

@@ -23,8 +23,7 @@ static int	find_min(t_dlist **lst)
 	{
 		if (min > current->content)
 			min = current->content;
-		else
-			current = current->next;
+		current = current->next;
 	}
 	return (min);
 }
