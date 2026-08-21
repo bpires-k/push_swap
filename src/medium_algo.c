@@ -44,7 +44,7 @@ void	moves(t_dlist **b, int count, int r_count)
 	}
 }
 
-void	select_sort(t_dlist **b, t_dlist *target)
+void	select_sort(t_dlist **b, int target)
 {
 	t_dlist	*head;
 	t_dlist	*tail;
@@ -55,12 +55,12 @@ void	select_sort(t_dlist **b, t_dlist *target)
 	r_count = 1;
 	head = (*b);
 	tail = ft_llast(*b);
-	while (head->index != target->index)
+	while (head->index != target)
 	{
 		head = head->next;
 		count += 1;
 	}
-	while (tail->index != target->index)
+	while (tail->index != target)
 	{
 		tail = tail->prev;
 		r_count += 1;
@@ -68,42 +68,47 @@ void	select_sort(t_dlist **b, t_dlist *target)
 	moves(b, count, r_count);	
 }
 
-void	bucket_sort(t_dlist **a, t_dlist **b)
+void	bucket_sort(t_dlist **a, t_dlist **b, int target, int total_range)
 {
-	int	i;
 	int	range;
+	int	size;
 
-	i = 0;
-	range = ft_sqrt(ft_lsize(*a));
-
-	if ((*a)->index <= i)
+	size = ft_lsize(*a);
+	range = total_range;
+	while (target <= size - 3)
 	{
-		push_b(a, b);
-		if (ft_lsize(*b) > 1)
-			rotate_b(b);
-		i++;
+		if ((*a)->index <= target)
+		{
+			push_b(a, b);
+			if (ft_lsize(*b) > 1)
+				rotate_b(b);
+			target++;
+		}
+		else if ((*a)->index <= range)	
+		{
+			push_b(a, b);	
+		}
+		else	
+			rotate_a(a);
+		if (target == total_range)
+			total_range += range;
 	}
-	else if ((*a)->index <= range)	
-	{
-		push_b(a, b);
-		i++;
-	}
-	else	
-		rotate_a(a);
-	if (i == range)
-		range += range;
+	return ;
 }
 
 t_dlist	**medium_sort(t_dlist **a, t_dlist **b)
 {
+	int	target;
+	int	total_range;
+
+	target = 1;
+	total_range = ft_sqrt(ft_lsize(*a));
 	if (!a || !b)
 		return (NULL);
-	while (*a)
-	{
-		bucket_sort(a, b);
+	bucket_sort(a, b, target, total_range);
 	while (*b)
 	{
-		select_sort(b, ft_lminindex(*b));
+		select_sort(b, ft_lmaxindex(*b)->index);
 		push_a(a, b);
 	}
 	return (a);

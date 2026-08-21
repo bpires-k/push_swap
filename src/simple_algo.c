@@ -16,14 +16,14 @@ t_dlist	**small_sort(t_dlist **a)
 {
 	int	max;
 
-	if (!a || !*a)
-		return (NULL);
+	if (!a || !*a || !(*a)->next)
+		return (a);
 	max = ft_lmaxindex(*a)->index;
 	if ((*a)->index == max)
 		rotate_a(a);
-	else if ((*a)->next->index == max)
+	else if ((*a)->next->index == max && ft_lsize(*a) > 2)
 		reverse_rotate_a(a);
-	if ((*a)->index > (*a)->next->index)
+	if ((*a)->index > (*a)->next->index && ft_lsize (*a) > 2)
 		swap_a(a);
 	return (a);
 }
@@ -56,15 +56,20 @@ void	move_min_to_top(t_dlist **lst)
 
 t_dlist	**simple_sort(t_dlist **a, t_dlist **b)
 {
+	int	target;
+	int	size;
+
+	size = ft_lsize(*a);
+	target = 1;
 	if (!a || !b)
 		return (NULL);
-	if (ft_lsize(*a) < 4)
-		return (small_sort(a));
-	while (ft_lsize(*a) > 1)
+	while (target <= size - 3)
 	{
-		select_sort(a, ft_lmaxindex(*a));
+		select_sort(a, target);
 		push_b(a, b);
+		target++;
 	}
+	a = small_sort(a);
 	while (*b)
 		push_a(a, b);	
 	return (a);
