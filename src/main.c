@@ -53,10 +53,10 @@ int	main(int argc, char **argv)
 	if (!a || !*a)
 		return (1);
 	sort_stack(a, flag, compute_disorder(*a));
-	while (*a)
+/*	while (*a)
 	{
 		printf("%i\n", (*a)->content);
 		(*a) = (*a)->next;
-	}
+	}*/
 	return (0);
 }
