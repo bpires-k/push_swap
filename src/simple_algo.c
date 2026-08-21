@@ -65,9 +65,10 @@ t_dlist	**simple_sort(t_dlist **a, t_dlist **b)
 		return (NULL);
 	while (target <= size - 3)
 	{
-		select_sort(a, target);
+		move_min_to_top(a);
 		push_b(a, b);
 		target++;
+		printf("%i, %i\n", target, size);
 	}
 	a = small_sort(a);
 	while (*b)
