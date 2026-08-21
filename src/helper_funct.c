@@ -12,6 +12,27 @@
 
 #include "../push_swap.h"
 
+/*t_dlist	*ft_findtarget(t_dlist **lst, t_dlist *node)
+{
+	t_dlist	*target;
+	int		dif;
+
+	dif = 0;
+	target = *lst;
+	if (node->index < ft_lminindex(*lst)->index)
+		return (ft_lminindex(*lst));
+	else if (node->index > ft_lmaxindex(*lst)->index)
+		return (ft_lmaxindex(*lst));
+	else
+	{
+		while (*lst)
+		{
+			if (node->index > (*lst)->index))
+				dif = node->index - (*lst)
+		}
+	}
+}*/
+
 t_dlist *ft_lmaxindex(t_dlist *node)
 {
 	t_dlist	*max;

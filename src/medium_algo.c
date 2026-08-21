@@ -75,32 +75,32 @@ void	bucket_sort(t_dlist **a, t_dlist **b)
 
 	i = 0;
 	range = ft_sqrt(ft_lsize(*a));
-	while (*a)
+
+	if ((*a)->index <= i)
 	{
-		if ((*a)->index <= i)
-		{
-			push_b(a, b);
-			if (ft_lsize(*b) > 1)
-				rotate_b(b);
-			i++;
-		}
-		else if ((*a)->index <= range)	
-		{
-			push_b(a, b);
-			i++;
-		}
-		else	
-			rotate_a(a);
-		if (i == range)
-			range += range;
+		push_b(a, b);
+		if (ft_lsize(*b) > 1)
+			rotate_b(b);
+		i++;
 	}
+	else if ((*a)->index <= range)	
+	{
+		push_b(a, b);
+		i++;
+	}
+	else	
+		rotate_a(a);
+	if (i == range)
+		range += range;
 }
 
 t_dlist	**medium_sort(t_dlist **a, t_dlist **b)
 {
 	if (!a || !b)
-		return (NULL);	
-	bucket_sort(a, b);
+		return (NULL);
+	while (*a)
+	{
+		bucket_sort(a, b);
 	while (*b)
 	{
 		select_sort(b, ft_lminindex(*b));
